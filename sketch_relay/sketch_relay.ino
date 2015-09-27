@@ -39,8 +39,19 @@ void loop() {
     Serial.println("  ");
           
     while (moistValue[ii] > potval) {
-      Serial.println("needs water");
-      lcd.setCursor(0, 0);
+	Serial.println("needs water");
+      	potval = analogRead(potPin);
+	moistValue[ii] = analogRead(ii);
+	Serial.print("Potentiometer level: ");
+	Serial.print(potval);
+	Serial.println(" ");
+	Serial.print("MOISTURE LEVEL : ");
+	Serial.print(ii);
+	Serial.print(" ");
+	Serial.print(moistValue[ii]);
+	Serial.println("  ");
+    
+lcd.setCursor(0, 0);
       lcd.print("Watering Plant #");
       lcd.print(ii+1);
       lcd.setCursor(0, 1);
